@@ -1,0 +1,18 @@
+{
+    "editor.fontSize": 17,
+    "cSpell.words": [
+        "aibot",
+        "childeren",
+        "clsx",
+        "GNPL",
+        "hookform",
+        "lucide",
+        "nextjs",
+        "oaidalleapiprodscus",
+        "openai",
+        "trpc",
+        "webp"
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "vscode_custom_css.imports": ["file:///home/arunprajapati/next-sass-app/next-ai/custom.css"]
+}

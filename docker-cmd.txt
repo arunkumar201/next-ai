@@ -1,0 +1,63 @@
+//to run this project
+1. build the docker image using below cmd 
+docker build -t next-ai .
+2.once  build ,then runs
+docker run -d -p 3000:3000 next-ai  npm run start 
+3.you can visit the localhost:3000 or runs
+docker ps to see the  running container
+
+
+
+
+# Base image
+FROM node:14-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Build the Next.js application
+RUN npm run build
+
+# Set the command to start the application
+CMD ["npm", "start"]
+
+==>>In the same directory, create a .dockerignore file with the following contents:
+
+node_modules
+.next
+
+==>>Build the Docker image by running the following command:
+
+docker build -t <username>/<image_name>:<tag>--build-arg API_URL=[http://example.com ↗](http://example.com) .
+ you can run the Docker container on any machine that has Docker installed using the following command:
+
+docker run -p 3000:3000 <username>/<image_name>:<tag>
+
+//notes
+The docker push command is used to push a Docker image to a registry. Before you can push an image, you need to have an image locally that you want to push.
+
+Assuming that you have an image named next-ai that you want to push to the Docker Hub registry under your username arun201 with a tagname of your choice, you can use the following command:
+
+docker tag next-ai arun201/next-ai:tagname
+
+This command will tag the next-ai image with the name arun201/next-ai:tagname. Replace tagname with the tag you want to use for the image.
+
+After tagging the image, you can push it to the Docker Hub registry using the following command:
+
+docker push arun201/next-ai:tagname
+
+This command will push the arun201/next-ai:tagname image to the Docker Hub registry. Make sure you have logged in to Docker Hub using the docker login command before pushing the image.
+//for push on hub 
+first 
+  1. docker login 
+  2. docker tag  naxt-ai arun201/next-ai:tagname
+  3.docker push next-ai:tagname
